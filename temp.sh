@@ -15,3 +15,19 @@ sudo tar xvzf hadoop-2.9.0.tar.gz
 mv hadoop-2.9.0 hadoop
 sudo mv hadoop /usr/local/hadoop
 sudo chown -R hadoopusr /usr/local
+sudo vi ~/.bashrc
+source ~/.bashrc
+sudo gedit /usr/local/hadoop/etc/hadoop/hadoop-env.sh
+sudo gedit /usr/local/hadoop/etc/hadoop/core-site.xml
+sudo gedit /usr/local/hadoop/etc/hadoop/hdfs-site.xml
+sudo gedit /usr/local/hadoop/etc/hadoop/yarn-site.xml
+sudo cp /usr/local/hadoop/etc/hadoop/mapred-site.xml.template /usr/local/hadoop/etc/hadoop/mapred-site.xml
+sudo gedit /usr/local/hadoop/etc/hadoop/mapred-site.xml
+sudo mkdir -p /usr/local/hadoop_space
+sudo mkdir -p /usr/local/hadoop_space/hdfs/namenode
+sudo mkdir -p /usr/local/hadoop_space/hdfs/datanode
+sudo chown -R hadoopusr /usr/local/hadoop_space
+hdfs namenode -format
+start-dfs.sh
+start-yarn.sh
+jps
